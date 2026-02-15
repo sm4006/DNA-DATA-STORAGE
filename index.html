@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeneStore - DNA Data Storage Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">🧬</div>
+                <span>GENESTORE</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#encode" class="active">Encode</a></li>
+                <li><a href="#vault">My Vault</a></li>
+                <li><a href="#decode">Decode</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#docs">Docs</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <button class="icon-btn" id="authBtn">
+                    <span id="authIcon">👤</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Authentication Modal -->
+    <div class="modal-backdrop" id="authModal">
+        <div class="modal auth-modal">
+            <div class="modal-header">
+                <h2 id="authModalTitle">Sign In</h2>
+                <button class="close-btn" onclick="closeAuthModal()">×</button>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('signin')">Sign In</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <!-- Sign In Form -->
+            <div id="signinForm" class="auth-form active">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="signinEmail" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signinPassword" placeholder="••••••••">
+                </div>
+                <button class="btn btn-primary" onclick="signIn()">Sign In</button>
+                <p class="auth-message" id="signinMessage"></p>
+            </div>
+            
+            <!-- Sign Up Form -->
+            <div id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signupName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signupPassword" placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" placeholder="••••••••">
+                </div>
+                <button class="btn btn-primary" onclick="signUp()">Create Account</button>
+                <p class="auth-message" id="signupMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Store Your Data in the Code of Life</h1>
+        <p class="subtitle">Convert any file into DNA sequences and preserve it forever</p>
+        
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="scrollToEncode()">
+                <span>Get Started</span>
+                <span>→</span> 
+            </button>
+          <!-- Learn More Button -->
+    <a href="dna.html" class="btn btn-primary">
+
+      <span>Learn More</span>
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+
+            
+
+        
+        </div>
+        
+        <!-- Info Cards -->
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="card-icon">🧬</div>
+                <div class="card-content">
+                    <h3>Efficient</h3>
+                    <p>1MB = 2M bp</p>
+                    <p class="small">Ultra-high density storage</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">🔒</div>
+                <div class="card-content">
+                    <h3>Secure</h3>
+                    <p>Encrypted</p>
+                    <p class="small">Military-grade protection</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">♾️</div>
+                <div class="card-content">
+                    <h3>Forever</h3>
+                    <p>Stable</p>
+                    <p class="small">1000+ year retention</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Encode Section -->
+    <section id="encode" class="section-container">
+        <div class="section-header">
+            <h2>📁 Drag & Drop Files Here</h2>
+            <p>or click to browse</p>
+        </div>
+        
+        <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text">
+                <h3>Drop your file here</h3>
+                <p>📄 Documents • 🖼️ Images • 🎥 Videos up to 100MB</p>
+            </div>
+            <input type="file" id="fileInput" hidden>
+        </div>
+    </section>
+
+    <!-- My Vault Section -->
+    <section id="vault" class="section-container vault-section" style="display: none;">
+        <div class="section-header">
+            <h2>🧬 My DNA Vault</h2>
+            <button class="btn btn-secondary btn-sm" onclick="refreshVault()">↻ Refresh</button>
+        </div>
+        
+        <div class="vault-filters">
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterVault('all')">All Files</button>
+                <button class="filter-btn" onclick="filterVault('documents')">Documents</button>
+                <button class="filter-btn" onclick="filterVault('images')">Images</button>
+                <button class="filter-btn" onclick="filterVault('videos')">Videos</button>
+            </div>
+            <select id="sortSelect" onchange="sortVault()">
+                <option value="recent">Sort: Recent</option>
+                <option value="name">Sort: Name</option>
+                <option value="size">Sort: Size</option>
+            </select>
+        </div>
+        
+        <div id="vaultGrid" class="vault-grid">
+            <div class="empty-state">
+                <div class="empty-icon">📦</div>
+                <h3>Your vault is empty</h3>
+                <p>Start encoding files to see them here</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Decode Section -->
+    <section id="decode" class="section-container" style="display: none;">
+        <div class="section-header">
+            <h2>🧬 Decode DNA Files</h2>
+            <p>Upload a .dna file to restore the original</p>
+        </div>
+        
+        <div class="upload-zone" id="decodeZone">
+            <div class="upload-icon">🧬</div>
+            <div class="upload-text">
+                <h3>Drop your .dna file here</h3>
+                <p>Only .dna files are accepted</p>
+            </div>
+            <input type="file" id="decodeInput" accept=".dna" hidden>
+        </div>
+    </section>
+
+    <!-- Encoding Modal -->
+    <div class="modal-backdrop" id="encodingModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Encoding: <span id="fileName">document.pdf</span> (<span id="fileSize">2.4 MB</span>)</h2>
+                <button class="close-btn" onclick="closeEncodingModal()">×</button>
+            </div>
+
+            <div class="process-flow">
+                <div class="process-stage active" id="stage1">
+                    <div class="icon">📄</div>
+                    <div class="label">DATA</div>
+                </div>
+                <div class="process-arrow"></div>
+                <div class="process-stage" id="stage2">
+                    <div class="icon">🧬</div>
+                    <div class="label">ENCODE</div>
+                </div>
+                <div class="process-arrow"></div>
+                <div class="process-stage" id="stage3">
+                    <div class="icon">✓</div>
+                    <div class="label">DNA STORED</div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="statusText">Converting binary to nucleotide sequences...</span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+            </div>
+
+            <div class="dna-viewer">
+                <div class="dna-sequence" id="dnaPreview"></div>
+            </div>
+
+            <div class="stats-panel">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="icon">🧬</span>
+                        <span class="label">Base pairs generated:</span>
+                        <span class="value" id="bpGenerated">0 / 0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="icon">📊</span>
+                        <span class="label">Compression ratio:</span>
+                        <span class="value" id="compressionRatio">1:4</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="icon">⏱️</span>
+                        <span class="label">Estimated time:</span>
+                        <span class="value" id="estimatedTime">-- seconds</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="icon">🛡️</span>
+                        <span class="label">Error correction:</span>
+                        <span class="value">Reed-Solomon ✓</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="downloadBtn" onclick="downloadEncoded()" style="display: none;">
+                    Download DNA File
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decoding Modal -->
+    <div class="modal-backdrop" id="decodingModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Decoding: <span id="decodeFileName">file.dna</span></h2>
+                <button class="close-btn" onclick="closeDecodingModal()">×</button>
+            </div>
+
+            <div class="process-flow">
+                <div class="process-stage active" id="decodeStage1">
+                    <div class="icon">🧬</div>
+                    <div class="label">DNA</div>
+                </div>
+                <div class="process-arrow"></div>
+                <div class="process-stage" id="decodeStage2">
+                    <div class="icon">📄</div>
+                    <div class="label">DECODE</div>
+                </div>
+                <div class="process-arrow"></div>
+                <div class="process-stage" id="decodeStage3">
+                    <div class="icon">✓</div>
+                    <div class="label">RESTORED</div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="decodeProgressFill" style="width: 0%"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="decodeStatusText">Reading DNA sequence...</span>
+                    <span class="progress-percent" id="decodeProgressPercent">0%</span>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="icon">📄</span>
+                        <span class="label">Original filename:</span>
+                        <span class="value" id="originalFileName">--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="icon">📊</span>
+                        <span class="label">File size:</span>
+                        <span class="value" id="originalFileSize">--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="icon">🧬</span>
+                        <span class="label">DNA length:</span>
+                        <span class="value" id="dnaSequenceLength">--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="icon">✓</span>
+                        <span class="label">Integrity:</span>
+                        <span class="value">100% ✓</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="downloadDecodedBtn" onclick="downloadDecoded()" style="display: none;">
+                    Download Original File
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
