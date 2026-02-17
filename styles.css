@@ -169,11 +169,30 @@ nav {
 
 /* Hero Section */
 .hero {
-    max-width: 1440px;
+    position: relative;
+    max-width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
     padding: var(--4xl) var(--xl);
     text-align: center;
+
+    background: url("dna-bg.jpeg") no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 20, 0.75);
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
 
 .hero h1 {
     font-size: 56px;
@@ -948,4 +967,37 @@ nav {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--bright-teal);
+}
+.nav-dna-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* Analytics Comparison Table */
+.comparison-container {
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical alignment (safe) */
+    margin-top: 30px;
+}
+
+.comparison-image {
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.docs-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.docs-frame {
+    width: 90%;
+    height: 600px;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }

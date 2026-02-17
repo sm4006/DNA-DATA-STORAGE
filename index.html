@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeneStore - DNA Data Storage Platform</title>
+    <title>GeneJelly - DNA Data Storage Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,22 +13,21 @@
         <nav>
             <a href="#" class="logo">
                 <div class="logo-icon">🧬</div>
-                <span>GENESTORE</span>
+                <span>GeneJelly</span>
             </a>
             
             <ul class="nav-links">
                 <li><a href="#encode" class="active">Encode</a></li>
-                <li><a href="#vault">My Vault</a></li>
+            
                 <li><a href="#decode">Decode</a></li>
                 <li><a href="#analytics">Analytics</a></li>
                 <li><a href="#docs">Docs</a></li>
             </ul>
             
-            <div class="nav-right">
-                <button class="icon-btn" id="authBtn">
-                    <span id="authIcon">👤</span>
-                </button>
-            </div>
+  <div class="nav-right">
+    <img src="dna.jpg" class="nav-dna-icon">
+</div>
+
         </nav>
     </header>
 
@@ -106,35 +105,7 @@
             
 
         
-        </div>
-        
-        <!-- Info Cards -->
-        <div class="info-cards">
-            <div class="info-card">
-                <div class="card-icon">🧬</div>
-                <div class="card-content">
-                    <h3>Efficient</h3>
-                    <p>1MB = 2M bp</p>
-                    <p class="small">Ultra-high density storage</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <div class="card-icon">🔒</div>
-                <div class="card-content">
-                    <h3>Secure</h3>
-                    <p>Encrypted</p>
-                    <p class="small">Military-grade protection</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <div class="card-icon">♾️</div>
-                <div class="card-content">
-                    <h3>Forever</h3>
-                    <p>Stable</p>
-                    <p class="small">1000+ year retention</p>
-                </div>
-            </div>
-        </div>
+       
     </section>
 
     <!-- Encode Section -->
@@ -154,36 +125,7 @@
         </div>
     </section>
 
-    <!-- My Vault Section -->
-    <section id="vault" class="section-container vault-section" style="display: none;">
-        <div class="section-header">
-            <h2>🧬 My DNA Vault</h2>
-            <button class="btn btn-secondary btn-sm" onclick="refreshVault()">↻ Refresh</button>
-        </div>
-        
-        <div class="vault-filters">
-            <div class="filter-group">
-                <button class="filter-btn active" onclick="filterVault('all')">All Files</button>
-                <button class="filter-btn" onclick="filterVault('documents')">Documents</button>
-                <button class="filter-btn" onclick="filterVault('images')">Images</button>
-                <button class="filter-btn" onclick="filterVault('videos')">Videos</button>
-            </div>
-            <select id="sortSelect" onchange="sortVault()">
-                <option value="recent">Sort: Recent</option>
-                <option value="name">Sort: Name</option>
-                <option value="size">Sort: Size</option>
-            </select>
-        </div>
-        
-        <div id="vaultGrid" class="vault-grid">
-            <div class="empty-state">
-                <div class="empty-icon">📦</div>
-                <h3>Your vault is empty</h3>
-                <p>Start encoding files to see them here</p>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Decode Section -->
     <section id="decode" class="section-container" style="display: none;">
         <div class="section-header">
@@ -340,7 +282,38 @@
             </div>
         </div>
     </div>
+<!-- Analytics Section -->
+<section id="analytics" class="section-container">
+
+    <div class="section-header">
+        <h2>Storage Comparison Analysis</h2>
+        <p>Comparing DNA Storage with Traditional Storage Technologies</p>
+    </div>
+
+    <div class="comparison-container">
+        <img src="comparison-table.jpeg"
+             alt="DNA vs Traditional Storage Comparison"
+             class="comparison-image">
+    </div>
+
+</section>
 
     <script src="app.js"></script>
 </body>
 </html>
+<section id="docs" class="section-container">
+
+    <div class="section-header">
+        <h2>Project Documentation</h2>
+        <p>DNA Data Storage & Gene Algorithm Presentation</p>
+    </div>
+
+    <div class="docs-container">
+        <iframe 
+            src="https://docs.google.com/presentation/d/e/2PACX-1vSPZOye3PMuen_wjOZawBgh5VmYkL_u1YvotVhS0ixDoHuCw7EZ7IB-DvfozD3yzA/pubembed?start=false&loop=false&delayms=3000"
+            class="docs-frame"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</section>
