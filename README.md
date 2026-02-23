@@ -22,7 +22,7 @@ This project simulates **DNA-based data storage**:
 
 ## 🧠 Technologies Used
 
-* Python
+
 * Java Script
 * HTML
 * CSS
