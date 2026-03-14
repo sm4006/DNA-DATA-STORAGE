@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeneJelly - DNA Data Storage Platform</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GeneJelly - DNA Data Storage Platform</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="#" class="logo">
-                <div class="logo-icon">🧬</div>
-                <span>GeneJelly</span>
-            </a>
-            
-            <ul class="nav-links">
-                <li><a href="#encode" class="active">Encode</a></li>
-            
-                <li><a href="#decode">Decode</a></li>
-                <li><a href="#analytics">Analytics</a></li>
-                <li><a href="#docs">Docs</a></li>
-            </ul>
-            
-  <div class="nav-right">
-    <img src="dna.jpg" class="nav-dna-icon">
+
+<!-- HEADER -->
+<header id="header">
+<nav>
+
+<a href="#" class="logo">
+<div class="logo-icon">🧬</div>
+<span>GeneJelly</span>
+</a>
+
+<ul class="nav-links">
+<li><a href="#encode">Encode</a></li>
+<li><a href="#decode">Decode</a></li>
+<li><a href="#analytics">Analytics</a></li>
+<li><a href="#docs">Docs</a></li>
+<li><a href="#members">Members</a></li>
+</ul>
+
+<div class="nav-right">
+<img src="dna.jpg" class="nav-dna-icon">
 </div>
 
-        </nav>
-    </header>
+</nav>
+</header>
 
     <!-- Authentication Modal -->
     <div class="modal-backdrop" id="authModal">
@@ -87,7 +95,18 @@
         <h1>Store Your Data in the Code of Life</h1>
         <p class="subtitle">Convert any file into DNA sequences and preserve it forever</p>
         
-        
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="scrollToEncode()">
+                <span>Get Started</span>
+                <span>→</span> 
+            </button>
+          <!-- Learn More Button -->
+    <a href="dna.html" class="btn btn-primary">
+
+      <span>Learn More</span>
+      <span>→</span>
+    </a>
+  </div>
 </section>
 
 
@@ -114,195 +133,125 @@
         </div>
     </section>
 
-    
-    <!-- Decode Section -->
-    <section id="decode" class="section-container" style="display: none;">
-        <div class="section-header">
-            <h2>🧬 Decode DNA Files</h2>
-            <p>Upload a .dna file to restore the original</p>
-        </div>
-        
-        <div class="upload-zone" id="decodeZone">
-            <div class="upload-icon">🧬</div>
-            <div class="upload-text">
-                <h3>Drop your .dna file here</h3>
-                <p>Only .dna files are accepted</p>
-            </div>
-            <input type="file" id="decodeInput" accept=".dna" hidden>
-        </div>
-    </section>
 
-    <!-- Encoding Modal -->
-    <div class="modal-backdrop" id="encodingModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>Encoding: <span id="fileName">document.pdf</span> (<span id="fileSize">2.4 MB</span>)</h2>
-                <button class="close-btn" onclick="closeEncodingModal()">×</button>
-            </div>
+<!-- ================= DECODE ================= -->
 
-            <div class="process-flow">
-                <div class="process-stage active" id="stage1">
-                    <div class="icon">📄</div>
-                    <div class="label">DATA</div>
-                </div>
-                <div class="process-arrow"></div>
-                <div class="process-stage" id="stage2">
-                    <div class="icon">🧬</div>
-                    <div class="label">ENCODE</div>
-                </div>
-                <div class="process-arrow"></div>
-                <div class="process-stage" id="stage3">
-                    <div class="icon">✓</div>
-                    <div class="label">DNA STORED</div>
-                </div>
-            </div>
+<section id="decode" class="section-container">
 
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                </div>
-                <div class="progress-text">
-                    <span id="statusText">Converting binary to nucleotide sequences...</span>
-                    <span class="progress-percent" id="progressPercent">0%</span>
-                </div>
-            </div>
+<div class="section-header">
+<h2>🧬 Decode DNA Files</h2>
+<p>Upload a .dna file to restore the original</p>
+</div>
 
-            <div class="dna-viewer">
-                <div class="dna-sequence" id="dnaPreview"></div>
-            </div>
+<div class="upload-zone" id="decodeZone">
 
-            <div class="stats-panel">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="icon">🧬</span>
-                        <span class="label">Base pairs generated:</span>
-                        <span class="value" id="bpGenerated">0 / 0</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="icon">📊</span>
-                        <span class="label">Compression ratio:</span>
-                        <span class="value" id="compressionRatio">1:4</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="icon">⏱️</span>
-                        <span class="label">Estimated time:</span>
-                        <span class="value" id="estimatedTime">-- seconds</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="icon">🛡️</span>
-                        <span class="label">Error correction:</span>
-                        <span class="value">Reed-Solomon ✓</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-actions">
-                <button class="btn btn-primary" id="downloadBtn" onclick="downloadEncoded()" style="display: none;">
-                    Download DNA File
-                </button>
-            </div>
-        </div>
-    </div>
+<div class="upload-icon">🧬</div>
 
-    <!-- Decoding Modal -->
-    <div class="modal-backdrop" id="decodingModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>Decoding: <span id="decodeFileName">file.dna</span></h2>
-                <button class="close-btn" onclick="closeDecodingModal()">×</button>
-            </div>
+<div class="upload-text">
+<h3>Drop your .dna file here</h3>
+<p>Only .dna files are accepted</p>
+</div>
 
-            <div class="process-flow">
-                <div class="process-stage active" id="decodeStage1">
-                    <div class="icon">🧬</div>
-                    <div class="label">DNA</div>
-                </div>
-                <div class="process-arrow"></div>
-                <div class="process-stage" id="decodeStage2">
-                    <div class="icon">📄</div>
-                    <div class="label">DECODE</div>
-                </div>
-                <div class="process-arrow"></div>
-                <div class="process-stage" id="decodeStage3">
-                    <div class="icon">✓</div>
-                    <div class="label">RESTORED</div>
-                </div>
-            </div>
+<input type="file" id="decodeInput" accept=".dna" hidden>
 
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="decodeProgressFill" style="width: 0%"></div>
-                </div>
-                <div class="progress-text">
-                    <span id="decodeStatusText">Reading DNA sequence...</span>
-                    <span class="progress-percent" id="decodeProgressPercent">0%</span>
-                </div>
-            </div>
+</div>
 
-            <div class="stats-panel">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="icon">📄</span>
-                        <span class="label">Original filename:</span>
-                        <span class="value" id="originalFileName">--</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="icon">📊</span>
-                        <span class="label">File size:</span>
-                        <span class="value" id="originalFileSize">--</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="icon">🧬</span>
-                        <span class="label">DNA length:</span>
-                        <span class="value" id="dnaSequenceLength">--</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="icon">✓</span>
-                        <span class="label">Integrity:</span>
-                        <span class="value">100% ✓</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-actions">
-                <button class="btn btn-primary" id="downloadDecodedBtn" onclick="downloadDecoded()" style="display: none;">
-                    Download Original File
-                </button>
-            </div>
-        </div>
-    </div>
-<!-- Analytics Section -->
+</section>
+
+
+<!-- ================= ANALYTICS ================= -->
+
 <section id="analytics" class="section-container">
 
-    <div class="section-header">
-        <h2>Storage Comparison Analysis</h2>
-        <p>Comparing DNA Storage with Traditional Storage Technologies</p>
-    </div>
+<div class="section-header">
+<h2>Storage Comparison Analysis</h2>
+<p>Comparing DNA Storage with Traditional Storage Technologies</p>
+</div>
 
-    <div class="comparison-container">
-        <img src="comparison-table.jpeg"
-             alt="DNA vs Traditional Storage Comparison"
-             class="comparison-image">
-    </div>
+<div class="comparison-container">
+
+<img
+src="comparison-table.jpeg"
+alt="DNA vs Traditional Storage Comparison"
+class="comparison-image">
+
+</div>
 
 </section>
 
-    <script src="app.js"></script>
-</body>
-</html>
+
+<!-- ================= DOCS ================= -->
+
 <section id="docs" class="section-container">
 
-    <div class="section-header">
-        <h2>Project Documentation</h2>
-        <p>DNA Data Storage & Gene Algorithm Presentation</p>
-    </div>
+<div class="section-header">
+<h2>Project Documentation</h2>
+<p>Complete research presentation and technical overview</p>
+</div>
 
-    <div class="docs-container">
-        <iframe 
-            src="https://docs.google.com/presentation/d/e/2PACX-1vSPZOye3PMuen_wjOZawBgh5VmYkL_u1YvotVhS0ixDoHuCw7EZ7IB-DvfozD3yzA/pubembed?start=false&loop=false&delayms=3000"
-            class="docs-frame"
-            allowfullscreen>
-        </iframe>
-    </div>
+<div class="docs-container">
+
+<iframe
+src="https://docs.google.com/presentation/d/11e84qJGe6lCwMmnzIUfJmkmjDNqFYDy6/preview"
+class="docs-frame"
+allowfullscreen>
+</iframe>
+
+</div>
 
 </section>
+
+
+<!-- ================= MEMBERS ================= -->
+
+<section id="members" class="section-container">
+
+<div class="section-header">
+<h2>Project Team</h2>
+<p>DNA Data Storage Research Project</p>
+</div>
+
+<div class="members-container">
+
+<div class="member-card">
+<img src="shaurya.jpg">
+<h3>Shaurya Mehta</h3>
+<p>SAP ID: 70412500037</p>
+<p>Branch: MBA Tech IT</p>
+<p>Role: Project Lead & Development</p>
+</div>
+
+<div class="member-card">
+<img src="diantha.jpg">
+<h3>Diantha Kanchan</h3>
+<p>SAP ID: 70412500006</p>
+<p>Branch: MBA Tech IT</p>
+<p>Role: Research & Documentation</p>
+</div>
+
+<div class="member-card">
+<img src="chandni.jpg">
+<h3>Chandni Iyer</h3>
+<p>SAP ID: XXXXX</p>
+<p>Branch: MBA Tech IT</p>
+<p>Role: Research</p>
+</div>
+
+<div class="member-card">
+<img src="vaishnavi.jpg">
+<h3>Vaishnavi Gupta</h3>
+<p>SAP ID: XXXXX</p>
+<p>Branch: MBA Tech IT</p>
+<p>Role: Research</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SCRIPT -->
+<script src="app.js"></script>
+
+</body>
+</html>
