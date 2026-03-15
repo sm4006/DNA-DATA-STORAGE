@@ -1,0 +1,8 @@
+PID: 43417 START: 1773576813045204224 :+++++++++++++++NEW COMMAND+++++++++++++++++++ starting new command: init [sid=repo-20260315T121327Z-P0000a999/repo-20260315T121333Z-P0000a999]
+
+PID: 43417 START: 1773576813054890752 :git command None ['git', 'config', '--get', 'trace2.eventtarget'] with debug: : git config --get trace2.eventtarget 1>| 2>|
+
+PID: 43417 END: 1773576813056034048 :git command None ['git', 'config', '--get', 'trace2.eventtarget'] with debug: : git config --get trace2.eventtarget 1>| 2>|
+
+PID: 43417 END: 1773576813056083712 :+++++++++++++++NEW COMMAND+++++++++++++++++++ starting new command: init [sid=repo-20260315T121327Z-P0000a999/repo-20260315T121333Z-P0000a999]
+
