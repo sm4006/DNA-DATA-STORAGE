@@ -1,0 +1,19 @@
+# System files
+.vscode/
+.vscode-server/
+
+# Python
+.venv/
+__pycache__/
+
+# Repo tool mistake
+.repo/
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+
