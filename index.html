@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GeneJelly - DNA Data Storage Platform</title>
+<title>GeneJelly – DNA Data Storage Platform</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 
@@ -15,28 +15,23 @@
 
 <body>
 
-<!-- HEADER -->
-<header id="header">
+<header>
+
 <nav>
 
-<a href="#" class="logo">
-<div class="logo-icon">🧬</div>
-<span>GeneJelly</span>
-</a>
+<div class="logo">
+🧬 GeneJelly
+</div>
 
 <ul class="nav-links">
 <li><a href="#encode">Encode</a></li>
 <li><a href="#decode">Decode</a></li>
 <li><a href="#analytics">Analytics</a></li>
 <li><a href="#docs">Docs</a></li>
-<li><a href="#members">Members</a></li>
 </ul>
 
-<div class="nav-right">
-<img src="dna.jpg" class="nav-dna-icon">
-</div>
-
 </nav>
+
 </header>
 
    
@@ -50,92 +45,75 @@
  
 </section>
 
+<!-- ENCODE -->
 
-            
+<section id="encode" class="section-container">
 
-        
-       
-    </section>
+<div class="section-header">
+<h2>📁 Encode File to DNA</h2>
+<p>Upload any file and convert it into DNA base sequences</p>
+</div>
 
-    <!-- Encode Section -->
-    <section id="encode" class="section-container">
-        <div class="section-header">
-            <h2>📁 Drag & Drop Files Here</h2>
-            <p>or click to browse</p>
-        </div>
-        
-        <div class="upload-zone" id="uploadZone">
-            <div class="upload-icon">📁</div>
-            <div class="upload-text">
-                <h3>Drop your file here</h3>
-                <p>📄 Documents • 🖼️ Images • 🎥 Videos up to 100MB</p>
-            </div>
-            <input type="file" id="fileInput" hidden>
-        </div>
-    </section>
+<div class="upload-zone">
+<input type="file">
+<p>Drag & Drop File Here</p>
+</div>
 
+</section>
 
-<!-- ================= DECODE ================= -->
+<!-- DECODE -->
 
 <section id="decode" class="section-container">
 
 <div class="section-header">
-<h2>🧬 Decode DNA Files</h2>
-<p>Upload a .dna file to restore the original</p>
+<h2>🧬 Decode DNA File</h2>
+<p>Upload a .dna file and recover the original data</p>
 </div>
 
-<div class="upload-zone" id="decodeZone">
-
-<div class="upload-icon">🧬</div>
-
-<div class="upload-text">
-<h3>Drop your .dna file here</h3>
-<p>Only .dna files are accepted</p>
-</div>
-
-<input type="file" id="decodeInput" accept=".dna" hidden>
-
+<div class="upload-zone">
+<input type="file">
+<p>Upload .dna file</p>
 </div>
 
 </section>
 
-
-<!-- ================= ANALYTICS ================= -->
+<!-- ANALYTICS -->
 
 <section id="analytics" class="section-container">
 
 <div class="section-header">
-<h2>Storage Comparison Analysis</h2>
-<p>Comparing DNA Storage with Traditional Storage Technologies</p>
+<h2>Storage Comparison</h2>
+<p>DNA Storage vs Traditional Storage Systems</p>
 </div>
 
 <div class="comparison-container">
 
-<img
-src="comparison-table.jpeg"
-alt="DNA vs Traditional Storage Comparison"
-class="comparison-image">
+<img src="comparison-table.jpeg" class="comparison-image">
 
 </div>
 
 </section>
 
-
-<!-- ================= DOCS ================= -->
+<!-- DOCS -->
 
 <section id="docs" class="section-container">
 
 <div class="section-header">
 <h2>Project Documentation</h2>
-<p>Complete research presentation and technical overview</p>
+<p>Research presentation and explanation of the GeneJelly system</p>
 </div>
 
-<div class="docs-container">
+<div class="presentation-container">
+
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%;
+box-shadow: 0 4px 20px rgba(0,0,0,0.4); border-radius: 12px; overflow: hidden;">
 
 <iframe
-src="https://docs.google.com/presentation/d/11e84qJGe6lCwMmnzIUfJmkmjDNqFYDy6/preview"
-class="docs-frame"
+loading="lazy"
+style="position:absolute;width:100%;height:100%;top:0;left:0;border:none"
+src="https://www.canva.com/design/DAHEABoYFW4/HGLOyw9Rv8rrGsMH4K-mqg/view?embed"
 allowfullscreen>
+
 </iframe>
 
 </div>
@@ -190,6 +168,9 @@ allowfullscreen>
 
 </section>
 
+<footer>
+
+GeneJelly • DNA Data Storage Simulation Platform
 
 <!-- SCRIPT -->
 <script src="app.js"></script>
