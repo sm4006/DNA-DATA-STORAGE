@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeneJelly - DNA Data Storage Platform</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="header">
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">🧬</div>
+            <span>GeneJelly</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#encode" class="active">Encode</a></li>
+            <li><a href="#decode">Decode</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+            <li><a href="#presentation">Presentation</a></li>
+            <li><a href="#team">Team</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <img src="dna.jpg" class="nav-dna-icon">
+        </div>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Store Your Data in the Code of Life</h1>
+    <p class="subtitle">Convert any file into DNA sequences and preserve it forever</p>
+</section>
+
+
+<!-- ENCODE -->
+<section id="encode" class="section-container">
+    <div class="section-header">
+        <h2>📁 Drag & Drop Files Here</h2>
+        <p>or click to browse</p>
+    </div>
+
+    <div class="upload-zone" id="uploadZone">
+        <div class="upload-icon">📁</div>
+        <div class="upload-text">
+            <h3>Drop your file here</h3>
+            <p>📄 Documents • 🖼️ Images • 🎥 Videos up to 100MB</p>
+        </div>
+        <input type="file" id="fileInput" hidden>
+    </div>
+</section>
+
+
+<!-- DECODE -->
+<section id="decode" class="section-container" style="display:none;">
+    <div class="section-header">
+        <h2>🧬 Decode DNA Files</h2>
+        <p>Upload a .dna file to restore the original</p>
+    </div>
+
+    <div class="upload-zone" id="decodeZone">
+        <div class="upload-icon">🧬</div>
+        <div class="upload-text">
+            <h3>Drop your .dna file here</h3>
+            <p>Only .dna files are accepted</p>
+        </div>
+        <input type="file" id="decodeInput" accept=".dna" hidden>
+    </div>
+</section>
+
+
+<!-- ANALYTICS -->
+<section id="analytics" class="section-container">
+    <div class="section-header">
+        <h2>Storage Comparison Analysis</h2>
+        <p>Comparing DNA Storage with Traditional Storage Technologies</p>
+    </div>
+
+    <div class="comparison-container">
+        <img src="comparison-table.jpeg" class="comparison-image">
+    </div>
+</section>
+
+
+<!-- ✅ CANVA PRESENTATION -->
+<section id="presentation" style="padding:60px 20px; text-align:center;">
+  <h2>Project Presentation</h2>
+
+  <div style="position:relative; width:100%; max-width:900px; margin:auto; height:0; padding-top:56.25%;
+   box-shadow:0 2px 8px rgba(63,69,81,0.16); margin-top:20px; overflow:hidden; border-radius:12px;">
+
+    <iframe loading="lazy"
+      style="position:absolute; width:100%; height:100%; top:0; left:0; border:none;"
+      src="https://www.canva.com/design/DAHEABoYFW4/HGLOyw9Rv8rrGsMH4K-mqg/view?embed"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p style="margin-top:15px;">
+    <a href="https://www.canva.com/design/DAHEABoYFW4/HGLOyw9Rv8rrGsMH4K-mqg/view" target="_blank">
+      View Full Presentation
+    </a>
+  </p>
+</section>
+
+
+<!-- ✅ TEAM -->
+<section id="team" style="padding:60px 20px; text-align:center;">
+  <h2>Our Team</h2>
+
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+    gap:30px;
+    max-width:900px;
+    margin:40px auto;
+  ">
+
+    <div>
+      <img src="shaurya.jpg" style="width:160px;height:160px;object-fit:cover;border-radius:50%;display:block;margin:auto;">
+      <h3>Shaurya</h3>
+    </div>
+
+    <div>
+      <img src="diantha.jpg" style="width:160px;height:160px;object-fit:cover;border-radius:50%;display:block;margin:auto;">
+      <h3>Diantha</h3>
+    </div>
+
+    <div>
+      <img src="vaishnavi.jpg" style="width:160px;height:160px;object-fit:cover;border-radius:50%;display:block;margin:auto;">
+      <h3>Vaishnavi</h3>
+    </div>
+
+    <div>
+      <img src="chandni.jpg" style="width:160px;height:160px;object-fit:cover;border-radius:50%;display:block;margin:auto;">
+      <h3>Chandni</h3>
+    </div>
+
+
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:20px;
+      max-width:900px;
+      margin:20px auto;
+    ">
+
+      <div>
+        <h3>Shaurya</h3>
+        <p>SAP ID: 70412500044</p>
+        <p>MBA TECH IT A1</p>
+        <p>I044</p>
+      </div>
+
+      <div>
+        <h3>Diantha</h3>
+        <p>SAP ID: 70412500037</p>
+        <p>MBA TECH IT A1</p>
+        <p>I037</p>
+      </div>
+
+      <div>
+        <h3>Vaishnavi</h3>
+        <p>SAP ID: 70412500008</p>
+        <p>MBA TECH IT A1</p>
+        <p>I023</p>
+      </div>
+
+      <div>
+        <h3>Chandni</h3>
+        <p>SAP ID: 70412500002</p>
+        <p>MBA TECH IT A1</p>
+        <p>I025</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
