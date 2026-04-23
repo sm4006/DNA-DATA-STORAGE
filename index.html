@@ -3,14 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <title>GeneJelly</title>
+=======
     <title>GeneJelly - DNA Data Storage Platform</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+>>>>>>> 054f29e (Final UI update: team section + canva + fixes)
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+<<<<<<< HEAD
+<h1>🧬 GeneJelly DNA Storage</h1>
+
+<!-- ENCODE -->
+<section>
+    <h2>Encode File</h2>
+    <input type="file" id="fileInput">
+    <button onclick="encodeFile()">Encode</button>
+
+    <div class="progress">
+        <div id="encodeBar"></div>
+    </div>
+
+    <p id="encodeStatus"></p>
+</section>
+
+<!-- DECODE -->
+<section>
+    <h2>Decode File</h2>
+    <input type="file" id="dnaInput" accept=".dna">
+    <button onclick="decodeFile()">Decode</button>
+
+    <div class="progress">
+        <div id="decodeBar"></div>
+    </div>
+
+    <p id="decodeStatus"></p>
+</section>
+
+<!-- 🔥 ENCODING MODAL -->
+<div id="encodingModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;">
+    <div style="background:#111; padding:20px; border-radius:10px; width:80%; max-width:500px; color:white;">
+        <h2>Encoding...</h2>
+
+        <div style="background:#222; height:10px;">
+            <div id="progressFill" style="width:0%; height:100%; background:#22c55e;"></div>
+        </div>
+
+        <p id="statusText">Processing...</p>
+
+        <div id="dnaPreview" style="font-family:monospace; max-height:150px; overflow:auto;"></div>
+
+        <button onclick="downloadEncoded()">Download DNA</button>
+    </div>
+</div>
+
+<!-- 🔥 DECODING MODAL -->
+<div id="decodingModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;">
+    <div style="background:#111; padding:20px; border-radius:10px; width:80%; max-width:500px; color:white;">
+        <h2>Decoding...</h2>
+
+        <div style="background:#222; height:10px;">
+            <div id="decodeProgressFill" style="width:0%; height:100%; background:#3b82f6;"></div>
+        </div>
+
+        <p id="decodeStatusText">Restoring...</p>
+
+        <button onclick="downloadDecoded()">Download File</button>
+    </div>
+</div>
+
+</section>
+
+<footer>
+    GeneJelly • DNA Data Storage Simulation Platform
+</footer>
+=======
 <!-- HEADER -->
 <header id="header">
     <nav>
@@ -185,6 +256,7 @@
   </div>
 </section>
 
+>>>>>>> 054f29e (Final UI update: team section + canva + fixes)
 
 <script src="app.js"></script>
 
