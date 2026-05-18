@@ -772,3 +772,162 @@ function formatBytes(bytes) {
     
     return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
 }
+/* =========================================
+   BIOTECH UI ANIMATION ENHANCEMENTS
+========================================= */
+
+function createStreamingDNA() {
+
+    const preview = document.getElementById('dnaPreview');
+
+    if (!preview) return;
+
+    const bases = ['A', 'T', 'G', 'C'];
+
+    setInterval(() => {
+
+        if (!document.getElementById('encodingModal')?.classList.contains('active')) {
+            return;
+        }
+
+        const base = bases[Math.floor(Math.random() * bases.length)];
+
+        const span = document.createElement('span');
+
+        span.className = 'base-' + base.toLowerCase();
+
+        span.textContent = base;
+
+        preview.appendChild(span);
+
+        if (preview.children.length > 600) {
+            preview.removeChild(preview.firstChild);
+        }
+
+        preview.scrollTop = preview.scrollHeight;
+
+    }, 40);
+}
+
+/* SMOOTH COUNTER ANIMATION */
+
+function animateValue(element, start, end, duration) {
+
+    if (!element) return;
+
+    let startTimestamp = null;
+
+    const step = (timestamp) => {
+
+        if (!startTimestamp) startTimestamp = timestamp;
+
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+        const value = Math.floor(progress * (end - start) + start);
+
+        element.textContent = value.toLocaleString();
+
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+
+    window.requestAnimationFrame(step);
+}
+
+/* ENHANCED PROGRESS VISUALS */
+
+const originalUpdateEncodingProgress = updateEncodingProgress;
+
+updateEncodingProgress = function(progress, current, total) {
+
+    originalUpdateEncodingProgress(progress, current, total);
+
+    const percent = document.getElementById('progressPercent');
+
+    if (percent) {
+
+        percent.style.transform = 'scale(1.08)';
+
+        setTimeout(() => {
+            percent.style.transform = 'scale(1)';
+        }, 180);
+    }
+
+    const bp = document.getElementById('bpGenerated');
+
+    if (bp) {
+        bp.style.opacity = '0.7';
+
+        setTimeout(() => {
+            bp.style.opacity = '1';
+        }, 150);
+    }
+};
+
+/* ENCODE MODAL GLOW EFFECT */
+
+function addModalGlow() {
+
+    const modal = document.querySelector('.modal');
+
+    if (!modal) return;
+
+    let glow = 0;
+
+    setInterval(() => {
+
+        glow += 0.02;
+
+        modal.style.boxShadow = `
+            0 0 ${40 + Math.sin(glow) * 20}px rgba(34,211,238,0.10),
+            0 0 ${80 + Math.sin(glow) * 30}px rgba(139,92,246,0.06),
+            0 20px 80px rgba(0,0,0,0.7)
+        `;
+
+    }, 40);
+}
+
+/* PROCESS CARD ACTIVATION FX */
+
+const originalSetActiveStage = setActiveStage;
+
+setActiveStage = function(stageNum) {
+
+    originalSetActiveStage(stageNum);
+
+    const stage = document.getElementById('stage' + stageNum);
+
+    if (!stage) return;
+
+    stage.animate(
+        [
+            {
+                transform:'scale(0.96)',
+                opacity:0.7
+            },
+            {
+                transform:'scale(1.04)',
+                opacity:1
+            },
+            {
+                transform:'scale(1)',
+                opacity:1
+            }
+        ],
+        {
+            duration:500,
+            easing:'ease-out'
+        }
+    );
+};
+
+/* START EFFECTS */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    createStreamingDNA();
+
+    addModalGlow();
+
+});
