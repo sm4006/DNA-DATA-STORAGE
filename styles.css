@@ -1001,3 +1001,217 @@ nav {
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
+/* =========================================
+   BIOTECH UI ENHANCEMENTS
+========================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left, rgba(34,211,238,0.10), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(139,92,246,0.10), transparent 30%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+.upload-zone{
+    backdrop-filter: blur(18px);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(30,41,59,0.88),
+            rgba(15,23,42,0.92)
+        );
+}
+
+.upload-zone:hover{
+    box-shadow:
+        0 0 40px rgba(34,211,238,0.15),
+        0 0 80px rgba(139,92,246,0.08);
+}
+
+.modal{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15,23,42,0.96),
+            rgba(10,22,40,0.98)
+        );
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 0 60px rgba(34,211,238,0.08),
+        0 20px 80px rgba(0,0,0,0.7);
+}
+
+/* PROCESS CARDS */
+
+.process-stage{
+    position:relative;
+    overflow:hidden;
+}
+
+.process-stage::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(34,211,238,0.08),
+            transparent
+        );
+
+    transform:translateX(-100%);
+    animation:cardShine 4s linear infinite;
+}
+
+@keyframes cardShine{
+    100%{
+        transform:translateX(140%);
+    }
+}
+
+.process-stage.active{
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 0 24px rgba(34,211,238,0.45),
+        inset 0 0 24px rgba(34,211,238,0.06);
+}
+
+/* PROGRESS */
+
+.progress-fill{
+    background:
+        linear-gradient(
+            90deg,
+            #06B6D4,
+            #22D3EE,
+            #8B5CF6,
+            #06B6D4
+        );
+
+    background-size:200% 100%;
+
+    animation:
+        shimmer 1.5s infinite,
+        gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove{
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:200% 50%;
+    }
+}
+
+.progress-percent{
+    font-size:42px;
+    text-shadow:0 0 18px rgba(34,211,238,0.5);
+}
+
+/* DNA VIEWER */
+
+.dna-viewer{
+    border:1px solid rgba(255,255,255,0.06);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,10,20,0.96),
+            rgba(2,6,14,0.98)
+        );
+}
+
+.dna-viewer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size:100% 4px;
+
+    pointer-events:none;
+}
+
+.dna-sequence{
+    animation:dnaScroll 18s linear infinite;
+}
+
+@keyframes dnaScroll{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-40%);
+    }
+}
+
+.base-a{
+    text-shadow:0 0 10px rgba(16,185,129,0.8);
+}
+
+.base-t{
+    text-shadow:0 0 10px rgba(239,68,68,0.8);
+}
+
+.base-g{
+    text-shadow:0 0 10px rgba(251,191,36,0.8);
+}
+
+.base-c{
+    text-shadow:0 0 10px rgba(59,130,246,0.8);
+}
+
+/* STATS */
+
+.stat-item{
+    background:rgba(255,255,255,0.02);
+    border:1px solid transparent;
+    border-radius:12px;
+    padding:12px;
+
+    transition:all .3s ease;
+}
+
+.stat-item:hover{
+    border-color:rgba(34,211,238,0.25);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(34,211,238,0.08);
+}
+
+/* HERO ENHANCEMENT */
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(circle at center, rgba(34,211,238,0.12), transparent 45%);
+
+    pointer-events:none;
+}
+
+.hero h1{
+    text-shadow:
+        0 0 30px rgba(34,211,238,0.12);
+}
