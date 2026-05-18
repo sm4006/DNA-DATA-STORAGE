@@ -77,6 +77,7 @@ The system generates DNA strands from:
 This project is licensed under the MIT License.
 
 👥 Team Members
+
 Chandni Iyer
 
 Diantha Kanchan
